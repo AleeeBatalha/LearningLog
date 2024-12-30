@@ -22,16 +22,16 @@ def topic(request, topic_id):
     return render(request, 'LearningLogs/topic.html', context)
 
 def new_topic(request):
-    """Adiciona um novo assunto"""
+    """Adiciona um novo assunto."""
     if request.method != 'POST':
-        # Nenhuma dado submetido; cria um formulario em branco
+        # Nenhum dado submetido; cria um formulário em branco
         form = TopicForm()
     else:
-        # Dados de POST submetido; processa os dados
+        # Dados de POST submetidos; processa os dados
         form = TopicForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('topics'))
-        
-        context = {'form': form}
-        return render(request, 'LearningLogs/new_topic.html', context)
+
+    context = {'form': form}
+    return render(request, 'LearningLogs/new_topic.html', context)
