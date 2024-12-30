@@ -2,8 +2,11 @@
 
 {% block content %}
 
-<h3>Topico: {{ topic }}</h3>
-<p>Entradas: </p>
+<p>Topico: {{ topic }}</p>
+<p>Anotacoes: </p>
+<p>
+    <a href="{% url 'new_entry' topic.id%}">Adicione uma nova anotacao</a>
+</p>
 <ul>
     {% for entry in entries %}
 <li>
